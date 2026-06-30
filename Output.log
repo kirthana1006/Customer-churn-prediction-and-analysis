@@ -1,0 +1,375 @@
+[Running] python -u "c:\Users\kirth\OneDrive\Documents\Custumer churn pred and anal\preprocess.py"
+customerID          0
+gender              0
+SeniorCitizen       0
+Partner             0
+Dependents          0
+tenure              0
+PhoneService        0
+MultipleLines       0
+InternetService     0
+OnlineSecurity      0
+OnlineBackup        0
+DeviceProtection    0
+TechSupport         0
+StreamingTV         0
+StreamingMovies     0
+Contract            0
+PaperlessBilling    0
+PaymentMethod       0
+MonthlyCharges      0
+TotalCharges        0
+Churn               0
+dtype: int64
+      customerID  gender  SeniorCitizen  ... MonthlyCharges TotalCharges  Churn
+0     7590-VHVEG  Female              0  ...          29.85        29.85     No
+1     5575-GNVDE    Male              0  ...          56.95       1889.5     No
+2     3668-QPYBK    Male              0  ...          53.85       108.15    Yes
+3     7795-CFOCW    Male              0  ...          42.30      1840.75     No
+4     9237-HQITU  Female              0  ...          70.70       151.65    Yes
+...          ...     ...            ...  ...            ...          ...    ...
+7038  6840-RESVB    Male              0  ...          84.80       1990.5     No
+7039  2234-XADUH  Female              0  ...         103.20       7362.9     No
+7040  4801-JZAZL  Female              0  ...          29.60       346.45     No
+7041  8361-LTMKD    Male              1  ...          74.40        306.6    Yes
+7042  3186-AJIEK    Male              0  ...         105.65       6844.5     No
+
+[7043 rows x 21 columns]
+<class 'pandas.DataFrame'>
+RangeIndex: 7043 entries, 0 to 7042
+Data columns (total 21 columns):
+ #   Column            Non-Null Count  Dtype  
+---  ------            --------------  -----  
+ 0   customerID        7043 non-null   str    
+ 1   gender            7043 non-null   str    
+ 2   SeniorCitizen     7043 non-null   int64  
+ 3   Partner           7043 non-null   str    
+ 4   Dependents        7043 non-null   str    
+ 5   tenure            7043 non-null   int64  
+ 6   PhoneService      7043 non-null   str    
+ 7   MultipleLines     7043 non-null   str    
+ 8   InternetService   7043 non-null   str    
+ 9   OnlineSecurity    7043 non-null   str    
+ 10  OnlineBackup      7043 non-null   str    
+ 11  DeviceProtection  7043 non-null   str    
+ 12  TechSupport       7043 non-null   str    
+ 13  StreamingTV       7043 non-null   str    
+ 14  StreamingMovies   7043 non-null   str    
+ 15  Contract          7043 non-null   str    
+ 16  PaperlessBilling  7043 non-null   str    
+ 17  PaymentMethod     7043 non-null   str    
+ 18  MonthlyCharges    7043 non-null   float64
+ 19  TotalCharges      7043 non-null   str    
+ 20  Churn             7043 non-null   str    
+dtypes: float64(1), int64(2), str(18)
+memory usage: 1.1 MB
+None
+0
+customerID              str
+gender                  str
+SeniorCitizen         int64
+Partner                 str
+Dependents              str
+tenure                int64
+PhoneService            str
+MultipleLines           str
+InternetService         str
+OnlineSecurity          str
+OnlineBackup            str
+DeviceProtection        str
+TechSupport             str
+StreamingTV             str
+StreamingMovies         str
+Contract                str
+PaperlessBilling        str
+PaymentMethod           str
+MonthlyCharges      float64
+TotalCharges            str
+Churn                   str
+dtype: object
+c:\Users\kirth\OneDrive\Documents\Custumer churn pred and anal\preprocess.py:10: Pandas4Warning: For backward compatibility, 'str' dtypes are included by select_dtypes when 'object' dtype is specified. This behavior is deprecated and will be removed in a future version. Explicitly pass 'str' to `include` to select them, or to `exclude` to remove them and silence this warning.
+See https://pandas.pydata.org/docs/user_guide/migration-3-strings.html#string-migration-select-dtypes for details on how to write code that works with pandas 2 and 3.
+  print(df.select_dtypes(include=['object']).columns)
+Index(['customerID', 'gender', 'Partner', 'Dependents', 'PhoneService',
+       'MultipleLines', 'InternetService', 'OnlineSecurity', 'OnlineBackup',
+       'DeviceProtection', 'TechSupport', 'StreamingTV', 'StreamingMovies',
+       'Contract', 'PaperlessBilling', 'PaymentMethod', 'TotalCharges',
+       'Churn'],
+      dtype='str')
+str
+float64
+11
+Index(['gender', 'SeniorCitizen', 'Partner', 'Dependents', 'tenure',
+       'PhoneService', 'MultipleLines', 'InternetService', 'OnlineSecurity',
+       'OnlineBackup', 'DeviceProtection', 'TechSupport', 'StreamingTV',
+       'StreamingMovies', 'Contract', 'PaperlessBilling', 'PaymentMethod',
+       'MonthlyCharges', 'TotalCharges', 'Churn'],
+      dtype='str')
+   gender  SeniorCitizen  Partner  ...  MonthlyCharges  TotalCharges  Churn
+0       0              0        1  ...           29.85         29.85      0
+1       1              0        0  ...           56.95       1889.50      0
+2       1              0        0  ...           53.85        108.15      1
+3       1              0        0  ...           42.30       1840.75      0
+4       0              0        0  ...           70.70        151.65      1
+
+[5 rows x 20 columns]
+   gender  ...  PaymentMethod_Mailed check
+0       0  ...                       False
+1       1  ...                        True
+2       1  ...                        True
+3       1  ...                       False
+4       0  ...                       False
+
+[5 rows x 41 columns]
+<class 'pandas.DataFrame'>
+RangeIndex: 7043 entries, 0 to 7042
+Data columns (total 41 columns):
+ #   Column                                   Non-Null Count  Dtype  
+---  ------                                   --------------  -----  
+ 0   gender                                   7043 non-null   int64  
+ 1   SeniorCitizen                            7043 non-null   int64  
+ 2   Partner                                  7043 non-null   int64  
+ 3   Dependents                               7043 non-null   int64  
+ 4   tenure                                   7043 non-null   int64  
+ 5   PhoneService                             7043 non-null   int64  
+ 6   PaperlessBilling                         7043 non-null   int64  
+ 7   MonthlyCharges                           7043 non-null   float64
+ 8   TotalCharges                             7032 non-null   float64
+ 9   Churn                                    7043 non-null   int64  
+ 10  MultipleLines_No                         7043 non-null   bool   
+ 11  MultipleLines_No phone service           7043 non-null   bool   
+ 12  MultipleLines_Yes                        7043 non-null   bool   
+ 13  InternetService_DSL                      7043 non-null   bool   
+ 14  InternetService_Fiber optic              7043 non-null   bool   
+ 15  InternetService_No                       7043 non-null   bool   
+ 16  OnlineSecurity_No                        7043 non-null   bool   
+ 17  OnlineSecurity_No internet service       7043 non-null   bool   
+ 18  OnlineSecurity_Yes                       7043 non-null   bool   
+ 19  OnlineBackup_No                          7043 non-null   bool   
+ 20  OnlineBackup_No internet service         7043 non-null   bool   
+ 21  OnlineBackup_Yes                         7043 non-null   bool   
+ 22  DeviceProtection_No                      7043 non-null   bool   
+ 23  DeviceProtection_No internet service     7043 non-null   bool   
+ 24  DeviceProtection_Yes                     7043 non-null   bool   
+ 25  TechSupport_No                           7043 non-null   bool   
+ 26  TechSupport_No internet service          7043 non-null   bool   
+ 27  TechSupport_Yes                          7043 non-null   bool   
+ 28  StreamingTV_No                           7043 non-null   bool   
+ 29  StreamingTV_No internet service          7043 non-null   bool   
+ 30  StreamingTV_Yes                          7043 non-null   bool   
+ 31  StreamingMovies_No                       7043 non-null   bool   
+ 32  StreamingMovies_No internet service      7043 non-null   bool   
+ 33  StreamingMovies_Yes                      7043 non-null   bool   
+ 34  Contract_Month-to-month                  7043 non-null   bool   
+ 35  Contract_One year                        7043 non-null   bool   
+ 36  Contract_Two year                        7043 non-null   bool   
+ 37  PaymentMethod_Bank transfer (automatic)  7043 non-null   bool   
+ 38  PaymentMethod_Credit card (automatic)    7043 non-null   bool   
+ 39  PaymentMethod_Electronic check           7043 non-null   bool   
+ 40  PaymentMethod_Mailed check               7043 non-null   bool   
+dtypes: bool(31), float64(2), int64(8)
+memory usage: 763.6 KB
+None
+0
+Index(['gender', 'SeniorCitizen', 'Partner', 'Dependents', 'tenure',
+       'PhoneService', 'PaperlessBilling', 'MonthlyCharges', 'TotalCharges',
+       'Churn', 'MultipleLines_No', 'MultipleLines_No phone service',
+       'MultipleLines_Yes', 'InternetService_DSL',
+       'InternetService_Fiber optic', 'InternetService_No',
+       'OnlineSecurity_No', 'OnlineSecurity_No internet service',
+       'OnlineSecurity_Yes', 'OnlineBackup_No',
+       'OnlineBackup_No internet service', 'OnlineBackup_Yes',
+       'DeviceProtection_No', 'DeviceProtection_No internet service',
+       'DeviceProtection_Yes', 'TechSupport_No',
+       'TechSupport_No internet service', 'TechSupport_Yes', 'StreamingTV_No',
+       'StreamingTV_No internet service', 'StreamingTV_Yes',
+       'StreamingMovies_No', 'StreamingMovies_No internet service',
+       'StreamingMovies_Yes', 'Contract_Month-to-month', 'Contract_One year',
+       'Contract_Two year', 'PaymentMethod_Bank transfer (automatic)',
+       'PaymentMethod_Credit card (automatic)',
+       'PaymentMethod_Electronic check', 'PaymentMethod_Mailed check'],
+      dtype='str')
+<class 'pandas.DataFrame'>
+RangeIndex: 7043 entries, 0 to 7042
+Data columns (total 41 columns):
+ #   Column                                   Non-Null Count  Dtype  
+---  ------                                   --------------  -----  
+ 0   gender                                   7043 non-null   int64  
+ 1   SeniorCitizen                            7043 non-null   int64  
+ 2   Partner                                  7043 non-null   int64  
+ 3   Dependents                               7043 non-null   int64  
+ 4   tenure                                   7043 non-null   int64  
+ 5   PhoneService                             7043 non-null   int64  
+ 6   PaperlessBilling                         7043 non-null   int64  
+ 7   MonthlyCharges                           7043 non-null   float64
+ 8   TotalCharges                             7043 non-null   float64
+ 9   Churn                                    7043 non-null   int64  
+ 10  MultipleLines_No                         7043 non-null   bool   
+ 11  MultipleLines_No phone service           7043 non-null   bool   
+ 12  MultipleLines_Yes                        7043 non-null   bool   
+ 13  InternetService_DSL                      7043 non-null   bool   
+ 14  InternetService_Fiber optic              7043 non-null   bool   
+ 15  InternetService_No                       7043 non-null   bool   
+ 16  OnlineSecurity_No                        7043 non-null   bool   
+ 17  OnlineSecurity_No internet service       7043 non-null   bool   
+ 18  OnlineSecurity_Yes                       7043 non-null   bool   
+ 19  OnlineBackup_No                          7043 non-null   bool   
+ 20  OnlineBackup_No internet service         7043 non-null   bool   
+ 21  OnlineBackup_Yes                         7043 non-null   bool   
+ 22  DeviceProtection_No                      7043 non-null   bool   
+ 23  DeviceProtection_No internet service     7043 non-null   bool   
+ 24  DeviceProtection_Yes                     7043 non-null   bool   
+ 25  TechSupport_No                           7043 non-null   bool   
+ 26  TechSupport_No internet service          7043 non-null   bool   
+ 27  TechSupport_Yes                          7043 non-null   bool   
+ 28  StreamingTV_No                           7043 non-null   bool   
+ 29  StreamingTV_No internet service          7043 non-null   bool   
+ 30  StreamingTV_Yes                          7043 non-null   bool   
+ 31  StreamingMovies_No                       7043 non-null   bool   
+ 32  StreamingMovies_No internet service      7043 non-null   bool   
+ 33  StreamingMovies_Yes                      7043 non-null   bool   
+ 34  Contract_Month-to-month                  7043 non-null   bool   
+ 35  Contract_One year                        7043 non-null   bool   
+ 36  Contract_Two year                        7043 non-null   bool   
+ 37  PaymentMethod_Bank transfer (automatic)  7043 non-null   bool   
+ 38  PaymentMethod_Credit card (automatic)    7043 non-null   bool   
+ 39  PaymentMethod_Electronic check           7043 non-null   bool   
+ 40  PaymentMethod_Mailed check               7043 non-null   bool   
+dtypes: bool(31), float64(2), int64(8)
+memory usage: 763.6 KB
+None
+gender                                     0
+SeniorCitizen                              0
+Partner                                    0
+Dependents                                 0
+tenure                                     0
+PhoneService                               0
+PaperlessBilling                           0
+MonthlyCharges                             0
+TotalCharges                               0
+Churn                                      0
+MultipleLines_No                           0
+MultipleLines_No phone service             0
+MultipleLines_Yes                          0
+InternetService_DSL                        0
+InternetService_Fiber optic                0
+InternetService_No                         0
+OnlineSecurity_No                          0
+OnlineSecurity_No internet service         0
+OnlineSecurity_Yes                         0
+OnlineBackup_No                            0
+OnlineBackup_No internet service           0
+OnlineBackup_Yes                           0
+DeviceProtection_No                        0
+DeviceProtection_No internet service       0
+DeviceProtection_Yes                       0
+TechSupport_No                             0
+TechSupport_No internet service            0
+TechSupport_Yes                            0
+StreamingTV_No                             0
+StreamingTV_No internet service            0
+StreamingTV_Yes                            0
+StreamingMovies_No                         0
+StreamingMovies_No internet service        0
+StreamingMovies_Yes                        0
+Contract_Month-to-month                    0
+Contract_One year                          0
+Contract_Two year                          0
+PaymentMethod_Bank transfer (automatic)    0
+PaymentMethod_Credit card (automatic)      0
+PaymentMethod_Electronic check             0
+PaymentMethod_Mailed check                 0
+dtype: int64
+Task 1:Data preprocessing completed successfully!
+Actual Values:
+185     1
+2715    0
+3825    0
+1807    1
+132     0
+Name: Churn, dtype: int64
+
+Predicted Values:
+[1 0 0 1 0]
+Accuracy: 0.8211497515968772
+Confusion Matrix:
+[[934 102]
+ [150 223]]
+              precision    recall  f1-score   support
+
+           0       0.86      0.90      0.88      1036
+           1       0.69      0.60      0.64       373
+
+    accuracy                           0.82      1409
+   macro avg       0.77      0.75      0.76      1409
+weighted avg       0.82      0.82      0.82      1409
+
+ROC-AUC Score: 0.75
+Task 2:Training and testing completed successfully!
+                                    Feature  Coefficient  Absolute Coefficient
+35                        Contract_Two year    -0.728442              0.728442
+13              InternetService_Fiber optic     0.727654              0.727654
+33                  Contract_Month-to-month     0.708461              0.708461
+12                      InternetService_DSL    -0.510861              0.510861
+32                      StreamingMovies_Yes     0.341189              0.341189
+6                          PaperlessBilling     0.333770              0.333770
+29                          StreamingTV_Yes     0.289498              0.289498
+15                        OnlineSecurity_No     0.285330              0.285330
+38           PaymentMethod_Electronic check     0.282105              0.282105
+24                           TechSupport_No     0.245187              0.245187
+9                          MultipleLines_No    -0.176583              0.176583
+25          TechSupport_No internet service    -0.176001              0.176001
+14                       InternetService_No    -0.176001              0.176001
+22     DeviceProtection_No internet service    -0.176001              0.176001
+19         OnlineBackup_No internet service    -0.176001              0.176001
+28          StreamingTV_No internet service    -0.176001              0.176001
+31      StreamingMovies_No internet service    -0.176001              0.176001
+16       OnlineSecurity_No internet service    -0.176001              0.176001
+11                        MultipleLines_Yes     0.166478              0.166478
+1                             SeniorCitizen     0.161944              0.161944
+18                          OnlineBackup_No     0.155124              0.155124
+3                                Dependents    -0.154441              0.154441
+23                     DeviceProtection_Yes     0.136194              0.136194
+37    PaymentMethod_Credit card (automatic)    -0.126526              0.126526
+30                       StreamingMovies_No    -0.124397              0.124397
+21                      DeviceProtection_No     0.080598              0.080598
+39               PaymentMethod_Mailed check    -0.072862              0.072862
+27                           StreamingTV_No    -0.072706              0.072706
+17                       OnlineSecurity_Yes    -0.068537              0.068537
+20                         OnlineBackup_Yes     0.061668              0.061668
+34                        Contract_One year     0.060773              0.060773
+4                                    tenure    -0.056791              0.056791
+0                                    gender    -0.052659              0.052659
+2                                   Partner     0.052089              0.052089
+10           MultipleLines_No phone service     0.050897              0.050897
+36  PaymentMethod_Bank transfer (automatic)    -0.041926              0.041926
+26                          TechSupport_Yes    -0.028394              0.028394
+7                            MonthlyCharges    -0.020945              0.020945
+5                              PhoneService    -0.010106              0.010106
+8                              TotalCharges     0.000305              0.000305
+                           Feature  Coefficient  Absolute Coefficient
+35               Contract_Two year    -0.728442              0.728442
+13     InternetService_Fiber optic     0.727654              0.727654
+33         Contract_Month-to-month     0.708461              0.708461
+12             InternetService_DSL    -0.510861              0.510861
+32             StreamingMovies_Yes     0.341189              0.341189
+6                 PaperlessBilling     0.333770              0.333770
+29                 StreamingTV_Yes     0.289498              0.289498
+15               OnlineSecurity_No     0.285330              0.285330
+38  PaymentMethod_Electronic check     0.282105              0.282105
+24                  TechSupport_No     0.245187              0.245187
+Task 3: Feature selection and relevance analysis completed successfully!
+Logistic Regression Accuracy: 82.11 %
+Since, the logistic regression technique has high accuracy (82.11%), we use it for binary classification.
+Task 4: Model selection completed successfully!
+Task 5: Model has been trained successfully!
+_______Model Evaluation Results_______
+Accuracy : 0.8211
+Precision: 0.6862
+Recall   : 0.5979
+F1-Score : 0.6390
+ROC-AUC  : 0.7497
+Task 6: Model has been evaluated and project is completed successfully!
+
+[Done] exited with code=0 in 10.801 seconds
+
